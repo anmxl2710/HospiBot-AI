@@ -96,14 +96,14 @@ def generate_launch_description():
         package="hospital_robot_sim",
         executable="robot_controller_node.py",
         name="robot_2_controller",
-        parameters=[{"robot_id": "robot_2", "idle_x": -6.3, "idle_y": -7.0, "initial_status": "moving"}],
+        parameters=[{"robot_id": "robot_2", "idle_x": -6.3, "idle_y": -7.0, "initial_status": "idle"}],
         output="screen",
     )
     ctrl_3 = Node(
         package="hospital_robot_sim",
         executable="robot_controller_node.py",
         name="robot_3_controller",
-        parameters=[{"robot_id": "robot_3", "idle_x": 0.0, "idle_y": 0.0, "initial_status": "at_task"}],
+        parameters=[{"robot_id": "robot_3", "idle_x": 0.0, "idle_y": 0.0, "initial_status": "idle"}],
         output="screen",
     )
 

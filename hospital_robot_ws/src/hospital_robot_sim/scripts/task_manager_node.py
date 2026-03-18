@@ -6,7 +6,7 @@ import uuid
 import rclpy
 from rclpy.node import Node
 
-from hospital_robot_sim.msg import Task
+from hospital_robot_sim_msgs.msg import Task
 
 
 TASK_TYPES = [

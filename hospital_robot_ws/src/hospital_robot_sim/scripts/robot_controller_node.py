@@ -10,7 +10,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist
 from nav_msgs.msg import Odometry
 
-from hospital_robot_sim.msg import TaskAssignment, RobotStatus
+from hospital_robot_sim_msgs.msg import TaskAssignment, RobotStatus
 
 
 def yaw_from_quat(x: float, y: float, z: float, w: float) -> float:

@@ -7,16 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(ament_cmake_python REQUIRED)
-find_package(rosidl_default_generators REQUIRED)
-find_package(builtin_interfaces REQUIRED)
-
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Task.msg"
-  "msg/TaskAssignment.msg"
-  "msg/AuctionResult.msg"
-  "msg/RobotStatus.msg"
-  DEPENDENCIES builtin_interfaces
-)
+find_package(hospital_robot_sim_msgs REQUIRED)
 
 ament_python_install_package(${PROJECT_NAME})
 
@@ -33,6 +24,7 @@ install(DIRECTORY
   launch
   config
   rviz
+  models
   DESTINATION share/${PROJECT_NAME}
 )
 

@@ -8,7 +8,7 @@ from typing import Dict
 import rclpy
 from rclpy.node import Node
 
-from hospital_robot_sim.msg import Task, TaskAssignment, AuctionResult, RobotStatus
+from hospital_robot_sim_msgs.msg import Task, TaskAssignment, AuctionResult, RobotStatus
 
 
 ROBOT_IDS = ["robot_1", "robot_2", "robot_3"]

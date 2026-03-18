@@ -1,0 +1,10 @@
+string task_id
+string task_type
+string pickup_location
+string dropoff_location
+int32 priority
+float64 pickup_x
+float64 pickup_y
+float64 dropoff_x
+float64 dropoff_y
+string status

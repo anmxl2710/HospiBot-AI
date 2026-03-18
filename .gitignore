@@ -1,0 +1,88 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyd
+*.so
+*.egg-info/
+.Python
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Python tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+.coverage
+coverage.xml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ---- Node / frontend ----
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- Build outputs ----
+dist/
+build/
+out/
+
+# ---- ROS 2 / colcon (workspace artifacts) ----
+**/build/
+**/install/
+**/log/
+
+# ---- Gazebo Classic runtime/cache ----
+.gazebo/
+**/.gazebo/
+**/gzserver.log
+**/gzclient.log
+**/ogre.log
+**/default.log
+
+# ---- WSL / Linux home artifacts (do not commit) ----
+.bash_history
+.bash_logout
+.bashrc
+.profile
+.motd_shown
+.sudo_as_admin_successful
+.cache/
+.config/
+.local/
+.sdformat/
+.landscape/
+.streamlit/
+
+# ---- Archives / downloads ----
+*.zip
+*.7z
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*Zone.Identifier
+
+# ---- Databases / large local data ----
+*.db
+*.sqlite
+*.sqlite3
+*.mdb
+*.ldf
+*.bak
+
+# ---- OS / editor ----
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+

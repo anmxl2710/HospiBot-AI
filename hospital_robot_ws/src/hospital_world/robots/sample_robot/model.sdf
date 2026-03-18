@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <model name="sample_robot">
+    <static>false</static>
+
+    <!-- BASE BODY - red box (sample delivery cart) -->
+    <link name="base_link">
+      <pose>0 0 0.2 0 0 0</pose>
+      <inertial>
+        <mass>6.0</mass>
+        <inertia><ixx>0.12</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.15</iyy><iyz>0</iyz><izz>0.18</izz></inertia>
+      </inertial>
+      <collision name="collision">
+        <geometry><box><size>0.7 0.5 0.25</size></box></geometry>
+      </collision>
+      <!-- Main red body -->
+      <visual name="visual_body">
+        <geometry><box><size>0.7 0.5 0.25</size></box></geometry>
+        <material><ambient>0.9 0.1 0.1 1</ambient><diffuse>0.9 0.1 0.1 1</diffuse></material>
+      </visual>
+      <!-- White sample container on top -->
+      <visual name="visual_container">
+        <pose>0 0 0.2 0 0 0</pose>
+        <geometry><box><size>0.45 0.35 0.2</size></box></geometry>
+        <material><ambient>0.95 0.95 0.95 1</ambient></material>
+      </visual>
+      <!-- Red cross horizontal -->
+      <visual name="visual_cross_h">
+        <pose>0 0 0.31 0 0 0</pose>
+        <geometry><box><size>0.18 0.04 0.01</size></box></geometry>
+        <material><ambient>0.9 0.0 0.0 1</ambient></material>
+      </visual>
+      <!-- Red cross vertical -->
+      <visual name="visual_cross_v">
+        <pose>0 0 0.31 0 0 1.5708</pose>
+        <geometry><box><size>0.18 0.04 0.01</size></box></geometry>
+        <material><ambient>0.9 0.0 0.0 1</ambient></material>
+      </visual>
+      <!-- LiDAR on top -->
+      <visual name="visual_lidar_body">
+        <pose>0.25 0 0.18 0 0 0</pose>
+        <geometry><cylinder><radius>0.04</radius><length>0.05</length></cylinder></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient></material>
+      </visual>
+      <!-- Camera (black box front) -->
+      <visual name="visual_camera">
+        <pose>0.36 0 0.05 0 0 0</pose>
+        <geometry><box><size>0.04 0.08 0.05</size></box></geometry>
+        <material><ambient>0.05 0.05 0.05 1</ambient></material>
+      </visual>
+    </link>
+
+    <!-- LEFT WHEEL -->
+    <link name="left_wheel">
+      <pose>0 0.32 0.08 -1.5708 0 0</pose>
+      <inertial><mass>0.5</mass><inertia><ixx>0.005</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.005</iyy><iyz>0</iyz><izz>0.005</izz></inertia></inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.08</radius><length>0.04</length></cylinder></geometry>
+        <surface><friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction></surface>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.08</radius><length>0.04</length></cylinder></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient></material>
+      </visual>
+    </link>
+    <joint name="left_wheel_joint" type="revolute">
+      <parent>base_link</parent><child>left_wheel</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e+16</lower><upper>1e+16</upper></limit></axis>
+    </joint>
+
+    <!-- RIGHT WHEEL -->
+    <link name="right_wheel">
+      <pose>0 -0.32 0.08 -1.5708 0 0</pose>
+      <inertial><mass>0.5</mass><inertia><ixx>0.005</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.005</iyy><iyz>0</iyz><izz>0.005</izz></inertia></inertial>
+      <collision name="collision">
+        <geometry><cylinder><radius>0.08</radius><length>0.04</length></cylinder></geometry>
+        <surface><friction><ode><mu>1.0</mu><mu2>1.0</mu2></ode></friction></surface>
+      </collision>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.08</radius><length>0.04</length></cylinder></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient></material>
+      </visual>
+    </link>
+    <joint name="right_wheel_joint" type="revolute">
+      <parent>base_link</parent><child>right_wheel</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e+16</lower><upper>1e+16</upper></limit></axis>
+    </joint>
+
+    <!-- FRONT CASTER -->
+    <link name="caster_front">
+      <pose>0.3 0 0.04 0 0 0</pose>
+      <inertial><mass>0.1</mass><inertia><ixx>0.001</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.001</iyy><iyz>0</iyz><izz>0.001</izz></inertia></inertial>
+      <collision name="collision">
+        <geometry><sphere><radius>0.04</radius></sphere></geometry>
+        <surface><friction><ode><mu>0.0</mu><mu2>0.0</mu2></ode></friction></surface>
+      </collision>
+      <visual name="visual"><geometry><sphere><radius>0.04</radius></sphere></geometry><material><ambient>0.5 0.5 0.5 1</ambient></material></visual>
+    </link>
+    <joint name="caster_front_joint" type="fixed"><parent>base_link</parent><child>caster_front</child></joint>
+
+    <!-- BACK CASTER -->
+    <link name="caster_back">
+      <pose>-0.3 0 0.04 0 0 0</pose>
+      <inertial><mass>0.1</mass><inertia><ixx>0.001</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.001</iyy><iyz>0</iyz><izz>0.001</izz></inertia></inertial>
+      <collision name="collision">
+        <geometry><sphere><radius>0.04</radius></sphere></geometry>
+        <surface><friction><ode><mu>0.0</mu><mu2>0.0</mu2></ode></friction></surface>
+      </collision>
+      <visual name="visual"><geometry><sphere><radius>0.04</radius></sphere></geometry><material><ambient>0.5 0.5 0.5 1</ambient></material></visual>
+    </link>
+    <joint name="caster_back_joint" type="fixed"><parent>base_link</parent><child>caster_back</child></joint>
+
+    <!-- LIDAR SENSOR -->
+    <link name="lidar_link">
+      <pose>0.25 0 0.38 0 0 0</pose>
+      <inertial><mass>0.05</mass><inertia><ixx>0.0001</ixx><ixy>0</ixy><ixz>0</ixz><iyy>0.0001</iyy><iyz>0</iyz><izz>0.0001</izz></inertia></inertial>
+      <sensor name="lidar" type="ray">
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <update_rate>10</update_rate>
+        <ray>
+          <scan><horizontal><samples>360</samples><resolution>1</resolution><min_angle>-3.14159</min_angle><max_angle>3.14159</max_angle></horizontal></scan>
+          <range><min>0.15</min><max>8.0</max><resolution>0.01</resolution></range>
+        </ray>
+        <plugin name="sample_lidar_plugin" filename="libgazebo_ros_ray_sensor.so">
+          <ros><namespace>/sample</namespace><remapping>~/out:=scan</remapping></ros>
+          <output_type>sensor_msgs/LaserScan</output_type>
+          <frame_name>sample/lidar_link</frame_name>
+        </plugin>
+      </sensor>
+    </link>
+    <joint name="lidar_joint" type="fixed"><parent>base_link</parent><child>lidar_link</child></joint>
+
+    <!-- DIFF DRIVE PLUGIN -->
+    <plugin name="sample_diff_drive" filename="libgazebo_ros_diff_drive.so">
+      <ros>
+        <namespace>/sample</namespace>
+        <remapping>cmd_vel:=cmd_vel</remapping>
+        <remapping>odom:=odom</remapping>
+      </ros>
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+      <wheel_separation>0.64</wheel_separation>
+      <wheel_diameter>0.16</wheel_diameter>
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <publish_odom>true</publish_odom>
+      <publish_odom_tf>true</publish_odom_tf>
+      <publish_wheel_tf>true</publish_wheel_tf>
+      <odometry_frame>sample/odom</odometry_frame>
+      <robot_base_frame>sample/base_link</robot_base_frame>
+    </plugin>
+
+  </model>
+</sdf>

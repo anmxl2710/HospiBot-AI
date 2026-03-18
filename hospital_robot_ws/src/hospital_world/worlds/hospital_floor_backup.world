@@ -1,0 +1,217 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="hospital_world">
+
+    <!-- ================= Outer Walls ================= -->
+    <model name="outer_wall_north">
+      <static>true</static>
+      <pose>0 7.5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>20 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_south">
+      <static>true</static>
+      <pose>0 -7.5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>20 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_east">
+      <static>true</static>
+      <pose>10 0 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>15 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>15 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <model name="outer_wall_west">
+      <static>true</static>
+      <pose>-10 0 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>15 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>15 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= Main Corridor ================= -->
+    <model name="corridor_divider">
+      <static>true</static>
+      <pose>0 3 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>20 0.3 2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>20 0.3 2</size></box></geometry>
+        </visual>
+      </link>
+    </model>
+
+    <!-- ================= Patient Rooms (Top Row) ================= -->
+    <model name="patient_room_1_wall">
+      <static>true</static>
+      <pose>-6 7 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="patient_room_2_wall">
+      <static>true</static>
+      <pose>-2 7 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="patient_room_3_wall">
+      <static>true</static>
+      <pose>2 7 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="patient_room_4_wall">
+      <static>true</static>
+      <pose>6 7 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- ================= Functional Rooms (Bottom Row) ================= -->
+    <model name="icu_wall">
+      <static>true</static>
+      <pose>-7 -5 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>5 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>5 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="operation_theatre_wall">
+      <static>true</static>
+      <pose>-2 -5 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>5 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>5 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="lab_wall">
+      <static>true</static>
+      <pose>3 -5 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>5 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>5 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="pharmacy_wall">
+      <static>true</static>
+      <pose>8 -5 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>5 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>5 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- ================= Side Rooms ================= -->
+    <model name="storage_wall">
+      <static>true</static>
+      <pose>-10 -2 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="nurse_station_wall">
+      <static>true</static>
+      <pose>10 -2 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>4 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>4 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+    <model name="charging_dock_wall">
+      <static>true</static>
+      <pose>0 -8 1 0 0 1.57</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>6 0.3 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>6 0.3 2</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- ================= Doors (Examples, replicate for all rooms) ================= -->
+    <model name="door_patient_1">
+      <static>true</static>
+      <pose>-6 5 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1 0.1 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1 0.1 2</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <model name="door_icu">
+      <static>true</static>
+      <pose>-7 -3 1 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>1 0.1 2</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>1 0.1 2</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- ================= Furniture placeholders ================= -->
+    <!-- Example: Patient bed in room 1 -->
+    <model name="bed_patient_1">
+      <static>true</static>
+      <pose>-6 6 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2 1 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2 1 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Example: Lab table -->
+    <model name="lab_table">
+      <static>true</static>
+      <pose>3 -5 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2 1 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2 1 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+    <!-- Example: Charging Dock placeholder -->
+    <model name="charging_station">
+      <static>true</static>
+      <pose>0 -8 0.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision"><geometry><box><size>2 2 1</size></box></geometry></collision>
+        <visual name="visual"><geometry><box><size>2 2 1</size></box></geometry></visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <!-- Static visuals/collisions included by hospital_jazzy.sdf -->
+  <model name="static_props">
+    <static>1</static>
+    <link name="props_link">
+      <!-- Top zone furniture -->
+      <visual name="office_desk"><pose>-10.5 7.6 0.45 0 0 0</pose><geometry><box><size>1.4 0.7 0.9</size></box></geometry>
+        <material><ambient>0.45 0.25 0.1 1</ambient><diffuse>0.45 0.25 0.1 1</diffuse></material></visual>
+      <collision name="office_desk_col"><pose>-10.5 7.6 0.45 0 0 0</pose><geometry><box><size>1.4 0.7 0.9</size></box></geometry></collision>
+      <visual name="office_chair"><pose>-9.3 7.2 0.25 0 0 0</pose><geometry><box><size>0.35 0.35 0.5</size></box></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material></visual>
+      <collision name="office_chair_col"><pose>-9.3 7.2 0.25 0 0 0</pose><geometry><box><size>0.35 0.35 0.5</size></box></geometry></collision>
+      <visual name="office_stool"><pose>-11.8 6.8 0.2 0 0 0</pose><geometry><cylinder><radius>0.2</radius><length>0.4</length></cylinder></geometry>
+        <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material></visual>
+      <collision name="office_stool_col"><pose>-11.8 6.8 0.2 0 0 0</pose><geometry><cylinder><radius>0.2</radius><length>0.4</length></cylinder></geometry></collision>
+
+      <visual name="nurse_desk"><pose>0 7.6 0.45 0 0 0</pose><geometry><box><size>1.8 0.7 0.9</size></box></geometry>
+        <material><ambient>0.45 0.25 0.1 1</ambient><diffuse>0.45 0.25 0.1 1</diffuse></material></visual>
+      <collision name="nurse_desk_col"><pose>0 7.6 0.45 0 0 0</pose><geometry><box><size>1.8 0.7 0.9</size></box></geometry></collision>
+      <visual name="nurse_chair"><pose>1.2 7.2 0.25 0 0 0</pose><geometry><box><size>0.35 0.35 0.5</size></box></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material></visual>
+      <collision name="nurse_chair_col"><pose>1.2 7.2 0.25 0 0 0</pose><geometry><box><size>0.35 0.35 0.5</size></box></geometry></collision>
+
+      <visual name="blue_bed_area"><pose>10.5 7.2 0.3 0 0 0</pose><geometry><box><size>1.8 1.2 0.6</size></box></geometry>
+        <material><ambient>0.1 0.25 0.9 1</ambient><diffuse>0.1 0.25 0.9 1</diffuse></material></visual>
+      <collision name="blue_bed_area_col"><pose>10.5 7.2 0.3 0 0 0</pose><geometry><box><size>1.8 1.2 0.6</size></box></geometry></collision>
+
+      <visual name="blue_desk"><pose>9.2 7.7 0.45 0 0 0</pose><geometry><box><size>1.2 0.6 0.9</size></box></geometry>
+        <material><ambient>0.45 0.25 0.1 1</ambient><diffuse>0.45 0.25 0.1 1</diffuse></material></visual>
+      <collision name="blue_desk_col"><pose>9.2 7.7 0.45 0 0 0</pose><geometry><box><size>1.2 0.6 0.9</size></box></geometry></collision>
+      <visual name="blue_chair"><pose>8.2 7.1 0.25 0 0 0</pose><geometry><box><size>0.35 0.35 0.5</size></box></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material></visual>
+      <collision name="blue_chair_col"><pose>8.2 7.1 0.25 0 0 0</pose><geometry><box><size>0.35 0.35 0.5</size></box></geometry></collision>
+
+      <!-- Middle zone equipment -->
+      <visual name="blue_machine"><pose>-10.5 0.0 0.55 0 0 0</pose><geometry><box><size>1.0 0.8 1.1</size></box></geometry>
+        <material><ambient>0.15 0.35 0.95 1</ambient><diffuse>0.15 0.35 0.95 1</diffuse></material></visual>
+      <collision name="blue_machine_col"><pose>-10.5 0.0 0.55 0 0 0</pose><geometry><box><size>1.0 0.8 1.1</size></box></geometry></collision>
+      <visual name="yellow_panel_1"><pose>-12.8 0.7 1.0 0 0 0</pose><geometry><box><size>0.2 3.0 2</size></box></geometry>
+        <material><ambient>0.95 0.85 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+      <collision name="yellow_panel_1_col"><pose>-12.8 0.7 1.0 0 0 0</pose><geometry><box><size>0.2 3.0 2</size></box></geometry></collision>
+      <visual name="black_rack"><pose>-8.7 -0.9 0.7 0 0 0</pose><geometry><box><size>0.6 0.6 1.4</size></box></geometry>
+        <material><ambient>0.1 0.1 0.1 1</ambient><diffuse>0.1 0.1 0.1 1</diffuse></material></visual>
+      <collision name="black_rack_col"><pose>-8.7 -0.9 0.7 0 0 0</pose><geometry><box><size>0.6 0.6 1.4</size></box></geometry></collision>
+      <visual name="yellow_cabinet"><pose>10.5 0.2 0.6 0 0 0</pose><geometry><box><size>1.2 0.8 1.2</size></box></geometry>
+        <material><ambient>0.95 0.85 0.1 1</ambient><diffuse>0.95 0.85 0.1 1</diffuse></material></visual>
+      <collision name="yellow_cabinet_col"><pose>10.5 0.2 0.6 0 0 0</pose><geometry><box><size>1.2 0.8 1.2</size></box></geometry></collision>
+      <visual name="archway"><pose>12.5 -0.5 1.0 0 0 0</pose><geometry><box><size>0.3 2.0 2</size></box></geometry>
+        <material><ambient>0.8 0.8 0.8 0.25</ambient><diffuse>0.8 0.8 0.8 0.25</diffuse></material></visual>
+
+      <!-- Bottom zone beds + bedside tables -->
+      <visual name="bed_1"><pose>-11.0 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <collision name="bed_1_col"><pose>-11.0 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry></collision>
+      <visual name="table_1"><pose>-12.6 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry>
+        <material><ambient>0.7 0.5 0.65 1</ambient><diffuse>0.7 0.5 0.65 1</diffuse></material></visual>
+      <collision name="table_1_col"><pose>-12.6 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry></collision>
+
+      <visual name="bed_2"><pose>-6.3 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <collision name="bed_2_col"><pose>-6.3 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry></collision>
+      <visual name="table_2"><pose>-7.9 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry>
+        <material><ambient>0.7 0.5 0.65 1</ambient><diffuse>0.7 0.5 0.65 1</diffuse></material></visual>
+      <collision name="table_2_col"><pose>-7.9 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry></collision>
+
+      <visual name="bed_3"><pose>-1.7 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <collision name="bed_3_col"><pose>-1.7 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry></collision>
+      <visual name="table_3"><pose>-3.3 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry>
+        <material><ambient>0.7 0.5 0.65 1</ambient><diffuse>0.7 0.5 0.65 1</diffuse></material></visual>
+      <collision name="table_3_col"><pose>-3.3 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry></collision>
+
+      <visual name="bed_4"><pose>2.9 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry>
+        <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material></visual>
+      <collision name="bed_4_col"><pose>2.9 -7.0 0.25 0 0 0</pose><geometry><box><size>1.8 0.8 0.5</size></box></geometry></collision>
+      <visual name="table_4"><pose>1.3 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry>
+        <material><ambient>0.7 0.5 0.65 1</ambient><diffuse>0.7 0.5 0.65 1</diffuse></material></visual>
+      <collision name="table_4_col"><pose>1.3 -6.2 0.2 0 0 0</pose><geometry><cylinder><radius>0.22</radius><length>0.4</length></cylinder></geometry></collision>
+
+      <!-- Task markers -->
+      <visual name="task_pickup_marker"><pose>-10.5 0.8 0.025 0 0 0</pose><geometry><box><size>0.15 0.15 0.05</size></box></geometry>
+        <material><ambient>0.95 0.2 0.4 1</ambient><diffuse>0.95 0.2 0.4 1</diffuse></material></visual>
+      <collision name="task_pickup_marker_col"><pose>-10.5 0.8 0.025 0 0 0</pose><geometry><box><size>0.15 0.15 0.05</size></box></geometry></collision>
+      <visual name="task_dropoff_marker"><pose>10.5 0.8 0.025 0 0 0</pose><geometry><box><size>0.15 0.15 0.05</size></box></geometry>
+        <material><ambient>0.95 0.2 0.4 1</ambient><diffuse>0.95 0.2 0.4 1</diffuse></material></visual>
+      <collision name="task_dropoff_marker_col"><pose>10.5 0.8 0.025 0 0 0</pose><geometry><box><size>0.15 0.15 0.05</size></box></geometry></collision>
+
+      <!-- Blue path line -->
+      <visual name="path_seg1"><pose>-6.3 -5.0 0.03 0 0 0</pose><geometry><box><size>0.12 5.0 0.02</size></box></geometry>
+        <material><ambient>0.1 0.4 0.95 1</ambient><diffuse>0.1 0.4 0.95 1</diffuse></material></visual>
+      <visual name="path_seg2"><pose>-8.4 -2.8 0.03 0 0 1.57</pose><geometry><box><size>0.12 4.2 0.02</size></box></geometry>
+        <material><ambient>0.1 0.4 0.95 1</ambient><diffuse>0.1 0.4 0.95 1</diffuse></material></visual>
+      <visual name="path_seg3"><pose>-10.5 0.6 0.03 0 0 0</pose><geometry><box><size>0.12 6.8 0.02</size></box></geometry>
+        <material><ambient>0.1 0.4 0.95 1</ambient><diffuse>0.1 0.4 0.95 1</diffuse></material></visual>
+    </link>
+  </model>
+</sdf>
+

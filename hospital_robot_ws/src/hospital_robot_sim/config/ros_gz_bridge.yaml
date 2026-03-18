@@ -1,0 +1,52 @@
+bridges:
+  # robot_1
+  - ros_topic_name: "/robot_1/cmd_vel"
+    gz_topic_name: "/model/robot_1/cmd_vel"
+    ros_type_name: "geometry_msgs/msg/Twist"
+    gz_type_name: "gz.msgs.Twist"
+    direction: ROS_TO_GZ
+  - ros_topic_name: "/robot_1/odom"
+    gz_topic_name: "/model/robot_1/odom"
+    ros_type_name: "nav_msgs/msg/Odometry"
+    gz_type_name: "gz.msgs.Odometry"
+    direction: GZ_TO_ROS
+  - ros_topic_name: "/robot_1/scan"
+    gz_topic_name: "/model/robot_1/scan"
+    ros_type_name: "sensor_msgs/msg/LaserScan"
+    gz_type_name: "gz.msgs.LaserScan"
+    direction: GZ_TO_ROS
+
+  # robot_2
+  - ros_topic_name: "/robot_2/cmd_vel"
+    gz_topic_name: "/model/robot_2/cmd_vel"
+    ros_type_name: "geometry_msgs/msg/Twist"
+    gz_type_name: "gz.msgs.Twist"
+    direction: ROS_TO_GZ
+  - ros_topic_name: "/robot_2/odom"
+    gz_topic_name: "/model/robot_2/odom"
+    ros_type_name: "nav_msgs/msg/Odometry"
+    gz_type_name: "gz.msgs.Odometry"
+    direction: GZ_TO_ROS
+  - ros_topic_name: "/robot_2/scan"
+    gz_topic_name: "/model/robot_2/scan"
+    ros_type_name: "sensor_msgs/msg/LaserScan"
+    gz_type_name: "gz.msgs.LaserScan"
+    direction: GZ_TO_ROS
+
+  # robot_3
+  - ros_topic_name: "/robot_3/cmd_vel"
+    gz_topic_name: "/model/robot_3/cmd_vel"
+    ros_type_name: "geometry_msgs/msg/Twist"
+    gz_type_name: "gz.msgs.Twist"
+    direction: ROS_TO_GZ
+  - ros_topic_name: "/robot_3/odom"
+    gz_topic_name: "/model/robot_3/odom"
+    ros_type_name: "nav_msgs/msg/Odometry"
+    gz_type_name: "gz.msgs.Odometry"
+    direction: GZ_TO_ROS
+  - ros_topic_name: "/robot_3/scan"
+    gz_topic_name: "/model/robot_3/scan"
+    ros_type_name: "sensor_msgs/msg/LaserScan"
+    gz_type_name: "gz.msgs.LaserScan"
+    direction: GZ_TO_ROS
+

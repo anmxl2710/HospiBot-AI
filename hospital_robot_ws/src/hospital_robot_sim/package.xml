@@ -2,7 +2,7 @@
 <package format="3">
   <name>hospital_robot_sim</name>
   <version>0.1.0</version>
-  <description>Hospital Gazebo Classic simulation with autonomous mobile robots (ROS 2 Humble).</description>
+  <description>Hospital simulation for ROS 2 (Classic + Harmonic launch options).</description>
 
   <maintainer email="anmol@todo.todo">anmol</maintainer>
   <license>MIT</license>
@@ -16,13 +16,19 @@
   <depend>nav_msgs</depend>
   <depend>sensor_msgs</depend>
   <depend>tf2_ros</depend>
-  <depend>gazebo_ros</depend>
-  <depend>gazebo_msgs</depend>
+  <!-- Gazebo Classic (Humble only) -->
+  <depend condition="$ROS_DISTRO == 'humble'">gazebo_ros</depend>
+  <depend condition="$ROS_DISTRO == 'humble'">gazebo_msgs</depend>
+
+  <!-- Gazebo Harmonic (Jazzy only) -->
+  <depend condition="$ROS_DISTRO == 'jazzy'">ros_gz_sim</depend>
+  <depend condition="$ROS_DISTRO == 'jazzy'">ros_gz_bridge</depend>
   <depend>robot_state_publisher</depend>
   <depend>rviz2</depend>
 
   <build_depend>rosidl_default_generators</build_depend>
   <exec_depend>rosidl_default_runtime</exec_depend>
+  <depend>builtin_interfaces</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="hospital_world">
+    <!-- Gazebo Harmonic world for ROS 2 Jazzy (gz sim) -->
+
+    <gravity>0 0 -9.8</gravity>
+
+    <scene>
+      <ambient>0.35 0.35 0.35 1</ambient>
+      <background>0.75 0.75 0.75 1</background>
+      <shadows>1</shadows>
+    </scene>
+
+    <light name="sun" type="directional">
+      <cast_shadows>1</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.2 -0.9</direction>
+    </light>
+
+    <!-- Grey tiled floor (grid) -->
+    <model name="hospital_floor">
+      <static>1</static>
+      <link name="floor_link">
+        <collision name="floor_collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>30 18</size>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="floor_visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>30 18</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.65 0.65 0.65 1</ambient>
+            <diffuse>0.65 0.65 0.65 1</diffuse>
+          </material>
+        </visual>
+      </link>
+      <pose>0 0 0 0 0 0</pose>
+    </model>
+
+    <!-- Outer structure: thick brown wooden walls with door gaps on left/right -->
+    <model name="outer_walls">
+      <static>1</static>
+      <link name="walls_link">
+        <!-- Top wall -->
+        <collision name="top_col">
+          <pose>0 8.5 1.0 0 0 0</pose>
+          <geometry><box><size>30 0.4 2</size></box></geometry>
+        </collision>
+        <visual name="top_vis">
+          <pose>0 8.5 1.0 0 0 0</pose>
+          <geometry><box><size>30 0.4 2</size></box></geometry>
+          <material>
+            <ambient>0.35 0.2 0.08 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Bottom wall -->
+        <collision name="bot_col">
+          <pose>0 -8.5 1.0 0 0 0</pose>
+          <geometry><box><size>30 0.4 2</size></box></geometry>
+        </collision>
+        <visual name="bot_vis">
+          <pose>0 -8.5 1.0 0 0 0</pose>
+          <geometry><box><size>30 0.4 2</size></box></geometry>
+          <material>
+            <ambient>0.35 0.2 0.08 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Left wall split into 2 segments to create a doorway gap -->
+        <collision name="left_top_col">
+          <pose>-14.8 4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 9.0 2</size></box></geometry>
+        </collision>
+        <visual name="left_top_vis">
+          <pose>-14.8 4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 9.0 2</size></box></geometry>
+          <material>
+            <ambient>0.35 0.2 0.08 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="left_bot_col">
+          <pose>-14.8 -4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 7.0 2</size></box></geometry>
+        </collision>
+        <visual name="left_bot_vis">
+          <pose>-14.8 -4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 7.0 2</size></box></geometry>
+          <material>
+            <ambient>0.35 0.2 0.08 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+
+        <!-- Right wall split into 2 segments to create a doorway gap -->
+        <collision name="right_top_col">
+          <pose>14.8 4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 9.0 2</size></box></geometry>
+        </collision>
+        <visual name="right_top_vis">
+          <pose>14.8 4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 9.0 2</size></box></geometry>
+          <material>
+            <ambient>0.35 0.2 0.08 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+        <collision name="right_bot_col">
+          <pose>14.8 -4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 7.0 2</size></box></geometry>
+        </collision>
+        <visual name="right_bot_vis">
+          <pose>14.8 -4.0 1.0 0 0 0</pose>
+          <geometry><box><size>0.4 7.0 2</size></box></geometry>
+          <material>
+            <ambient>0.35 0.2 0.08 1</ambient>
+            <diffuse>0.45 0.25 0.1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Internal walls + furniture are copied from the Classic world.
+         For simplicity and compatibility, we keep their geometry/colors and drop Gazebo-Classic material scripts. -->
+    <!-- NOTE: gz sim can load SDF worlds; this file focuses on visuals + collision only. -->
+
+    <!-- Internal partitions -->
+    <model name="internal_walls">
+      <static>1</static>
+      <link name="iw_link">
+        <visual name="hz_top_rooms">
+          <pose>0 5.7 1.0 0 0 0</pose>
+          <geometry><box><size>29.0 0.12 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="hz_top_rooms_col">
+          <pose>0 5.7 1.0 0 0 0</pose>
+          <geometry><box><size>29.0 0.12 2</size></box></geometry>
+        </collision>
+
+        <visual name="hz_mid_zone">
+          <pose>0 1.5 1.0 0 0 0</pose>
+          <geometry><box><size>29.0 0.12 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="hz_mid_zone_col">
+          <pose>0 1.5 1.0 0 0 0</pose>
+          <geometry><box><size>29.0 0.12 2</size></box></geometry>
+        </collision>
+
+        <visual name="hz_lower_corridor">
+          <pose>0 -2.8 1.0 0 0 0</pose>
+          <geometry><box><size>29.0 0.12 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="hz_lower_corridor_col">
+          <pose>0 -2.8 1.0 0 0 0</pose>
+          <geometry><box><size>29.0 0.12 2</size></box></geometry>
+        </collision>
+
+        <visual name="top_room_sep_1">
+          <pose>-5.0 7.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 2.6 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="top_room_sep_1_col">
+          <pose>-5.0 7.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 2.6 2</size></box></geometry>
+        </collision>
+        <visual name="top_room_sep_2">
+          <pose>5.0 7.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 2.6 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="top_room_sep_2_col">
+          <pose>5.0 7.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 2.6 2</size></box></geometry>
+        </collision>
+
+        <visual name="patient_sep_1">
+          <pose>-7.0 -6.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 4.8 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="patient_sep_1_col">
+          <pose>-7.0 -6.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 4.8 2</size></box></geometry>
+        </collision>
+        <visual name="patient_sep_2">
+          <pose>-2.3 -6.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 4.8 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="patient_sep_2_col">
+          <pose>-2.3 -6.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 4.8 2</size></box></geometry>
+        </collision>
+        <visual name="patient_sep_3">
+          <pose>2.3 -6.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 4.8 2</size></box></geometry>
+          <material><ambient>0.55 0.55 0.55 1</ambient><diffuse>0.55 0.55 0.55 1</diffuse></material>
+        </visual>
+        <collision name="patient_sep_3_col">
+          <pose>2.3 -6.2 1.0 0 0 0</pose>
+          <geometry><box><size>0.12 4.8 2</size></box></geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Furniture + equipment + markers + path line (same geometry/colors as classic world) -->
+    <!-- NOTE: kept minimal here; the demo logic doesn't depend on these being dynamic -->
+    <include>
+      <uri>file://worlds/_hospital_jazzy_static.sdf</uri>
+    </include>
+  </world>
+</sdf>
+

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, TimerAction
+from launch.actions import IncludeLaunchDescription, TimerAction, SetEnvironmentVariable
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+from launch.actions import DeclareLaunchArgument
 from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 import os
@@ -13,11 +15,21 @@ def generate_launch_description():
 
     world_path = os.path.join(pkg_share, "worlds", "hospital_jazzy.sdf")
 
+    headless = LaunchConfiguration("headless")
+
     # Start Gazebo Harmonic
     ros_gz_share = get_package_share_directory("ros_gz_sim")
+    gz_args = [
+        "-r -v 3 ",
+        headless,
+        " ",
+        world_path,
+    ]
+
     gz_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(os.path.join(ros_gz_share, "launch", "gz_sim.launch.py")),
-        launch_arguments={"gz_args": f"-r -v 3 {world_path}"}.items(),
+        # -s: run server (headless). On WSL llvmpipe, GUI can be blank; headless is reliable.
+        launch_arguments={"gz_args": "".join(gz_args)}.items(),
     )
 
     # Make sure Gazebo can find our local models
@@ -65,6 +77,7 @@ def generate_launch_description():
     bridge = Node(
         package="ros_gz_bridge",
         executable="parameter_bridge",
+        name="parameter_bridge",
         parameters=[bridge_cfg],
         output="screen",
     )
@@ -117,6 +130,15 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
+            DeclareLaunchArgument(
+                "headless",
+                default_value="-s",
+                description="Set to '-s' for headless (recommended on WSL). Set to '' to try GUI.",
+            ),
+            # WSL safety: force software GL to avoid blank GUI crashes.
+            SetEnvironmentVariable("LIBGL_ALWAYS_SOFTWARE", "1"),
+            SetEnvironmentVariable("GZ_SIM_RENDER_ENGINE", "ogre"),
+            SetEnvironmentVariable("GZ_SIM_RESOURCE_PATH", f"{pkg_share}:{gz_model_path}"),
             gz_launch,
             spawn,
             bridge,
